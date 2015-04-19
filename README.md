@@ -6,9 +6,10 @@ with nothing more than a laptop and phones+headphones!
 
 TODOS
 
-Set up server
+DONE Set up admin page
+DONE Set up server (to serve stream configured on admin)
 Set up simple music player (client)
-Stream local music to client
+Stream local music to client via admin
 Prove ability to listen to this on another computer
 Listing site/alias because 10.0.xxxx isn't catchy
 

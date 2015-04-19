@@ -1,0 +1,30 @@
+<html>
+  <head>
+  </head>
+  <body>
+  <h1>HI THERE <span id="local-ip"></span></h1>
+  <button id="spawn">Gimme a server</button>
+  <a href="http://localhost:6799/">Your new goddamn server</a>
+    <script>
+      var fs = require('fs')
+      var getLocalIp = require('./src/util/localip.js').getLocalIp
+      function log(x) { document.getElementById('local-ip').innerText = x }
+      getLocalIp(log)
+
+      var express = require('express')
+      function spawnYouAServer() {
+        console.log('spawning!')
+        var app = express()
+        app.get('/', function(req,res) {
+            res.set({'Content-Type': 'audio/mpeg'});
+            var stream = fs.createReadStream('./media/takeonme.mp3');
+            stream.pipe(res);
+           // res.send('A NEW FUCKING SERVER')
+        })
+        app.listen(6799)
+      }
+      var spawnButton = document.getElementById('spawn')
+      spawnButton.addEventListener('click', spawnYouAServer)
+    </script>
+  </body>
+</html>

@@ -1,7 +1,9 @@
 {
   "name": "shh-party",
+  "main": "index.html",
+  "scripts": {
+    "nw": "nwjs/nwjs.app/Contents/MacOS/nwjs ."
+  },
   "dependencies": {
-    "express": "^4.12.3",
-    "jade": "^1.9.2"
   }
 }
