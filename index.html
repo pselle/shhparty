@@ -3,13 +3,33 @@
   </head>
   <body>
   <h1>HI THERE <span id="local-ip"></span></h1>
-  <button id="spawn">Gimme a server</button>
-  <a href="http://localhost:6799/">Your new goddamn server</a>
+
+  <div id="dj-view">
+    Add files to your set
+    <input id="file-selector" type="file">
+    <ul id="files">
+    </ul>
+  </div>
+
+  <button id="spawn">Start your set</button>
+
     <script>
       var fs = require('fs')
       var getLocalIp = require('./src/util/localip.js').getLocalIp
       function log(x) { document.getElementById('local-ip').innerText = x }
       getLocalIp(log)
+
+      // TODO add drag and drop support
+      var filePicker = document.getElementById('file-selector')
+      var fileList = document.getElementById('files')
+      filePicker.addEventListener('change', function displayFile(event) {
+        console.log(this.value)
+        var splitFileName = this.value.split('/')
+        var item = document.createElement('li')
+        item.innerText = splitFileName[splitFileName.length - 1]
+        item.__filepath = this.value
+        fileList.appendChild(item)
+      })
 
       var express = require('express')
       function spawnYouAServer() {
