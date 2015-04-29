@@ -14,6 +14,7 @@
   <button id="spawn">Start your set</button>
 
     <script>
+
       var fs = require('fs')
       var getLocalIp = require('./src/util/localip.js').getLocalIp
       function log(x) { document.getElementById('local-ip').innerText = x }
@@ -35,9 +36,9 @@
       function spawnYouAServer() {
         console.log('spawning!')
         var app = express()
+        var stream = fs.createReadStream('./media/goodtime.mp3');
         app.get('/', function(req,res) {
             res.set({'Content-Type': 'audio/mpeg'});
-            var stream = fs.createReadStream('./media/takeonme.mp3');
             stream.pipe(res);
            // res.send('A NEW FUCKING SERVER')
         })
