@@ -43,32 +43,17 @@
 
     <div class="container">
       <div class="jumbotron">
-          <h1>shhparty-server</h1>
-          <p></p>
-          <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-6">
-              <h3>All Chatter<button id="clearAllPosts" type="button" class="btn btn-danger btn-xs pull-right">clear</button></h3>
-              <div id="allPosts" class="form-control"></div>
-            <div class="input-group">
-            <input id="blast" type="text" class="form-control" placeholder="send something to everyone">
-            <span class="input-group-btn">
-              <button id="send" class="btn btn-success" type="button">Send</button>
-            </span>
-            </div><!-- /input-group -->
-            </div>
-          </div>
+          <h1>Shh! It's a party!</h1>
+          <button id="newParty">Start a new party</button>
     </div>
   </div>
 
-    <!-- jQuery -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="public/bower_components/jQuery/jquery.min.js"><\/script>')</script>
-
     <!-- socket.io -->
     <script src="/socket.io/socket.io.js"></script>
+    <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
 
   <!-- APP CODE -->
-  <script src="js/app.min.js"></script>
+  <script src="js/app.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
