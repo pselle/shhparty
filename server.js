@@ -6,6 +6,7 @@ var app = express()
 var server = require('http').createServer(app)
 var io = require('socket.io').listen(server)
 var device  = require('express-device')
+var fs = require('fs')
 
 var runningPortNumber = process.env.PORT
 
@@ -46,6 +47,18 @@ io.sockets.on('connection', function (socket) {
 
   socket.on("newParty", function(data) {
     console.log(data)
+    fs.open("tmp/data.json", 'a', function(error, fd) {
+      if (error) {
+        console.error(error)
+      }
+      var text = '{"created":' + Date.now() +',"peerId":"' + data.peerId + '"}\n'
+      fs.write(fd, text, null, null, null, function(error) {
+        if (error) {
+          console.error(error)
+        }
+        fs.close(fd)
+      })
+    })
   })
 })
 
