@@ -6,9 +6,10 @@ socket.on("blast", function(data){
   console.log('cats', data)
 });
 
-var newRoomButton = document.getElementById('DJ')
+var newPartyButton = document.getElementById('newParty')
 var peer = new Peer({key: 'fr9d131o9wwmi'})
 
-newRoomButton.addEventListener('click', function(e) {
+newPartyButton.addEventListener('click', function(e) {
   console.log(peer.id)
+  socket.emit("newParty", { peerId: peer.id })
 })
