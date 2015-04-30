@@ -26,7 +26,7 @@ node_modules
 bower_components
 
 .DS_Store
-
 media
 nwjs
 todo.txt
+.sass-cache
