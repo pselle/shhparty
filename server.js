@@ -10,6 +10,8 @@ var fs = require('fs')
 
 var runningPortNumber = process.env.PORT
 
+app.set('port', (process.env.PORT || 9887))
+
 app.configure(function(){
   // I need to access everything in '/public' directly
   app.use(express.static(__dirname + '/public'))
@@ -77,4 +79,6 @@ io.sockets.on('connection', function (socket) {
   })
 })
 
-server.listen(9887)
+app.listen(app.get('port'), function() {
+  console.log('http://127.0.0.1:' + app.get('port'))
+})
