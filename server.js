@@ -31,8 +31,19 @@ app.use(function(req, res, next) {
   next()
 })
 
-app.get("/", function(req, res){
-  res.render('index', {})
+app.get("/", function(req, res) {
+  fs.readFile("tmp/data.json", {encoding: 'utf8'}, function(err, data) {
+    if (err) {
+      console.error(err)
+    }
+    var parties = []
+    if (data) {
+      parties = data.trim().split("\n").map(function (p) {
+        return JSON.parse(p)
+      })
+    }
+    res.render('index', {parties: parties})
+  })
 })
 
 io.sockets.on('connection', function (socket) {
@@ -46,18 +57,13 @@ io.sockets.on('connection', function (socket) {
   })
 
   socket.on("newParty", function(data) {
-    console.log(data)
-    fs.open("tmp/data.json", 'a', function(error, fd) {
+    console.log("Recieved new party", data)
+
+    var text = '{"created":' + Date.now() +',"peerId":"' + data.peerId + '"}\n'
+    fs.writeFile("tmp/data.json", text, {encoding: 'utf8', flag: 'a'}, function(error) {
       if (error) {
         console.error(error)
       }
-      var text = '{"created":' + Date.now() +',"peerId":"' + data.peerId + '"}\n'
-      fs.write(fd, text, null, null, null, function(error) {
-        if (error) {
-          console.error(error)
-        }
-        fs.close(fd)
-      })
     })
   })
 })

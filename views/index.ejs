@@ -45,6 +45,11 @@
       <div class="jumbotron">
         <h1>Shh! It's a party!</h1>
         <button id="newParty">Start a new party</button>
+
+        <ul>
+          <% for (var party of parties) { %>
+            <li><%= party.peerId %></li>
+          <% } %>
       </div>
     </div>
 
