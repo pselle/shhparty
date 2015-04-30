@@ -1,0 +1,15 @@
+<% include partials/header %>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Shh! It's a party!</h1>
+        <h2>Welcome, partier!</h2>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+
+    <script>var dj = "<%= partyId %>"</script>
+    <script src="/js/party.js"></script>
+<% include partials/footer %>
+

@@ -1,9 +1,18 @@
 {
   "name": "shh-party",
-  "main": "index.html",
-  "scripts": {
-    "nw": "nwjs/nwjs.app/Contents/MacOS/nwjs ."
-  },
+  "description":"",
+  "author":"",
+  "version": "0.0.1",
+  "main": "server.js",
+  "private": true,
+  "repository": "",
   "dependencies": {
+    "express": "~3.4.6",
+    "socket.io": "~0.9.16",
+    "ejs": "~0.8.5",
+    "express-device": "~0.3.7"
+  },
+  "engines": {
+    "node": ">=0.8.0"
   }
 }
