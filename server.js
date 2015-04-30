@@ -46,6 +46,11 @@ app.get("/", function(req, res) {
   })
 })
 
+// Get handler for partying with a DJ.
+app.get("/party/:partyid", function(req, res) {
+  res.send(req.params.partyid)
+})
+
 io.sockets.on('connection', function (socket) {
 
   io.sockets.emit('blast', {msg:"PamISAWESOME"})
