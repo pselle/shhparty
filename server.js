@@ -52,7 +52,7 @@ app.get("/party/:partyid", function(req, res) {
 })
 
 app.get("/dj/:partyid", function(req, res) {
-  res.send("I'm A DJ JUST LIKE PAM! " + req.params.partyid)
+  res.render('dj')
 })
 
 io.sockets.on('connection', function (socket) {
