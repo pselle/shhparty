@@ -21,8 +21,13 @@ app.configure(function(){
   app.set('views', __dirname +'/views')
 
   app.use(device.capture())
+  // Open the data file and try to read it, just so we know it exists.
+  fs.readFile("tmp/data.json", {flag: 'w+', encoding: 'utf8'}, function(err, data) {
+    if (err) {
+      console.error(err)
+    }
+  });
 })
-
 
 // Logs every request
 app.use(function(req, res, next) {
@@ -71,7 +76,7 @@ io.sockets.on('connection', function (socket) {
     console.log("Recieved new party", data)
 
     var text = '{"created":' + Date.now() +',"peerId":"' + data.peerId + '"}\n'
-    fs.writeFile("tmp/data.json", text, {encoding: 'utf8', flag: 'a'}, function(error) {
+    fs.writeFile("tmp/data.json", text, {encoding: 'utf8', flag: 'a+'}, function(error) {
       if (error) {
         console.error(error)
       }
