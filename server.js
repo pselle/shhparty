@@ -84,6 +84,6 @@ io.sockets.on('connection', function (socket) {
   })
 })
 
-app.listen(app.get('port'), function() {
+server.listen(app.get('port'), function() {
   console.log('http://127.0.0.1:' + app.get('port'))
 })
