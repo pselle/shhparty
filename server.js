@@ -47,11 +47,16 @@ io.sockets.on('connection', function (socket) {
   socket.on('blast', function(data, fn){
     console.log(data);
     io.sockets.emit('blast', {msg:data.msg});
-
     fn();//call the client back to clear out the field
   });
 
+  socket.on("newParty", function(data) {
+    console.log(data)
+  })
+
+
 });
+
 
 
 server.listen(9887);
