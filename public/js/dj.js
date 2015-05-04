@@ -15,8 +15,11 @@ peer.on('connection', function(conn) {
     // party, add them to the list of people partying.
     if (data.type != undefined && data.party != undefined && data.id != undefined) {
       if (data.type == "here" && data.party == dj) {
-        partiers.push(data.id)
-        console.log("New Partier", data.id)
+        var conn = peer.connect(data.id)
+        conn.on('open', function() {
+          partiers.push(data.id)
+          console.log("New Partier", data.id)
+        })
       } else {
         console.log("Person trying to get to wrong party.")
       }
