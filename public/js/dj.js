@@ -1,4 +1,3 @@
-
 var socket = io.connect('/')
 
 // The dj var is written by the server side template.
@@ -43,15 +42,8 @@ peer.on('connection', function(conn) {
   });
 });
 
-/*
-window.setInterval(function() {
-  for (i in partiers) {
-    if (partiers[i].open) {
-      console.log("ping", i)
-      partiers[i].send(i)
-    } else {
-      partiers[i].close()
-    }
-  }
-}, 500);
-*/
+// When the DJ closes their window, let the server know they're leaving
+window.onbeforeunload = function() {
+  socket.emit("closedParty", { peerId: peer.id })
+  return null
+}
