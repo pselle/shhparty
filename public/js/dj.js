@@ -32,6 +32,11 @@ peer.on('connection', function(conn) {
 
 window.setInterval(function() {
   for (i in partiers) {
-    partiers[i].send(i)
+    if (partiers[i].open) {
+      console.log("ping", i)
+      partiers[i].send(i)
+    } else {
+      partiers[i].close()
+    }
   }
 }, 500);
