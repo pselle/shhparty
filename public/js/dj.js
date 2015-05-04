@@ -37,7 +37,6 @@ peer.on('connection', function(conn) {
           partiers.push(conn)
           console.log("New Partier", data.id)
         })
-        console.log("New Partier", data.id)
       } else {
         console.log("Person trying to get to wrong party.")
       }

@@ -10,7 +10,6 @@ peer.on('connection', function(conn) {
     // DJ has recognized your attendance and registered you,
     // close your connection to the DJ
     if (data.type != undefined && data.party != undefined) {
-      console.log('hi')
       console.log(peer.id)
       if(data.type == "registration_complete" && data.party == dj) {
         console.log("closing")
@@ -21,18 +20,13 @@ peer.on('connection', function(conn) {
 })
 
 peer.on('call', function(mediaConn) {
-  window.mediaConn = mediaConn
   mediaConn.answer()
 
   mediaConn.on('stream', function(stream) {
     var audioEl = document.querySelector('audio')
     audioEl.src = window.URL.createObjectURL(stream)
-    audioEl.onloadedmetadata = function(e) {
-      console.log(e)
-      console.log(audioEl)
-      audioEl.play()
-    }
   })
+  mediaConn.on('error', function(err) { console.log(err) })
 })
 
 // Ok, you're not the DJ. So, you first need to tell the DJ that you are here,
