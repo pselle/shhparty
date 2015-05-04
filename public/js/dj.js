@@ -17,6 +17,7 @@ peer.on('connection', function(conn) {
       if (data.type == "here" && data.party == dj) {
         var conn = peer.connect(data.id)
         conn.on('open', function() {
+          conn.send({ type: "registration_complete", party: dj })
           partiers.push(conn)
           console.log("New Partier", data.id)
         })
