@@ -82,6 +82,31 @@ io.sockets.on('connection', function (socket) {
       }
     })
   })
+
+  socket.on("closedParty", function(partyData) {
+    console.log("Closing party", partyData)
+    fs.readFile("tmp/data.json",  {encoding: 'utf8'}, function(err, data) {
+      if (err) {
+        console.error(err)
+      }
+      var parties = ""
+      if (data) {
+        data.trim().split("\n").map(function (p) {
+          var parsed = JSON.parse(p)
+          if(parsed.peerId != partyData.peerId) {
+            parties = parties + p + "\n"
+          }
+
+        })
+
+        fs.writeFile("tmp/data.json", parties, {encoding: 'utf8'}, function(error) {
+          if(error) {
+            console.error(error)
+          }
+        })
+      }
+    })
+  })
 })
 
 server.listen(app.get('port'), function() {
