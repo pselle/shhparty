@@ -32,11 +32,8 @@ peer.on('connection', function(conn) {
     if (data.type != undefined && data.party != undefined && data.id != undefined) {
       if (data.type == "here" && data.party == dj) {
         var conn = peer.call(data.id, stream)
-        conn.on('open', function() {
-          conn.send({ type: "registration_complete", party: dj })
-          partiers.push(conn)
-          console.log("New Partier", data.id)
-        })
+        partiers.push(conn)
+        console.log("New Partier", data.id)
       } else {
         console.log("Person trying to get to wrong party.")
       }
