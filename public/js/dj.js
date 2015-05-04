@@ -17,9 +17,10 @@ peer.on('connection', function(conn) {
       if (data.type == "here" && data.party == dj) {
         var conn = peer.connect(data.id)
         conn.on('open', function() {
-          partiers.push(data.id)
+          partiers.push(conn)
           console.log("New Partier", data.id)
         })
+        console.log("New Partier", data.id)
       } else {
         console.log("Person trying to get to wrong party.")
       }
@@ -28,3 +29,9 @@ peer.on('connection', function(conn) {
     }
   });
 });
+
+window.setInterval(function() {
+  for (i in partiers) {
+    partiers[i].send(i)
+  }
+}, 500);
