@@ -3,9 +3,20 @@ var peer = new Peer({key: 'fr9d131o9wwmi'})
 
 // Open a connection
 peer.on('connection', function(conn) {
-  // On recieve data, do stuff.
+  // On receive data, do stuff.
   conn.on('data', function(data){
     console.log(data);
+
+    // DJ has recognized your attendance and registered you,
+    // close your connection to the DJ
+    if (data.type != undefined && data.party != undefined) {
+      console.log('hi')
+      console.log(peer.id)
+      if(data.type == "registration_complete" && data.party == dj) {
+        console.log("closing")
+        closeConnection()
+      }
+    }
   });
 });
 
@@ -16,3 +27,10 @@ conn.on('open', function() {
   conn.send({ type: "here", party: dj, id: peer.id })
   console.log("Said I'm here.")
 })
+
+// Close the connection to the DJ after the callback has executed
+function closeConnection() {
+  window.setTimeout(function() {
+    conn.close()
+  }, 1)
+}
