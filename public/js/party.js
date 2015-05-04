@@ -5,7 +5,7 @@ var peer = new Peer({key: 'fr9d131o9wwmi'})
 peer.on('connection', function(conn) {
   // On receive data, do stuff.
   conn.on('data', function(data){
-    console.log(data);
+    console.log(data)
 
     // DJ has recognized your attendance and registered you,
     // close your connection to the DJ
@@ -17,8 +17,23 @@ peer.on('connection', function(conn) {
         closeConnection()
       }
     }
-  });
-});
+  })
+})
+
+peer.on('call', function(mediaConn) {
+  window.mediaConn = mediaConn
+  mediaConn.answer()
+
+  mediaConn.on('stream', function(stream) {
+    var audioEl = document.querySelector('audio')
+    audioEl.src = window.URL.createObjectURL(stream)
+    audioEl.onloadedmetadata = function(e) {
+      console.log(e)
+      console.log(audioEl)
+      audioEl.play()
+    }
+  })
+})
 
 // Ok, you're not the DJ. So, you first need to tell the DJ that you are here,
 // and you are ready to party.
