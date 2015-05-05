@@ -7,7 +7,7 @@ socket.on("blast", function(data){
 })
 
 var newPartyButton = document.getElementById('newParty')
-var peer = new Peer({key: 'fr9d131o9wwmi'})
+var peer = new Peer({key: 'hm094plpm3b1q0k9'})
 
 newPartyButton.addEventListener('click', function(e) {
   socket.emit("newParty", { peerId: peer.id })

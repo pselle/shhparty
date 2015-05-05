@@ -1,5 +1,5 @@
 var socket = io.connect('/')
-var peer = new Peer({key: 'fr9d131o9wwmi'})
+var peer = new Peer({key: 'hm094plpm3b1q0k9'})
 
 // Ok, you're not the DJ. So, you first need to tell the DJ that you are here,
 // and you are ready to party.
