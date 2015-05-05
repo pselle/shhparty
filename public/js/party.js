@@ -11,6 +11,7 @@ conn.on('open', function() {
 })
 
 peer.on('call', function(mediaConn) {
+  console.log("received call, now answering")
   mediaConn.answer()
   // Close our connection to the DJ, as they're calling us
   if(conn) {
