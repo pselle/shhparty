@@ -65,14 +65,6 @@ app.get("/dj/:partyid", function(req, res) {
 
 io.sockets.on('connection', function (socket) {
 
-  io.sockets.emit('blast', {msg:"PamISAWESOME"})
-
-  socket.on('blast', function(data, fn) {
-    console.log(data)
-    io.sockets.emit('blast', {msg:data.msg})
-    fn() // Call the client back to clear out the field
-  })
-
   socket.on("newParty", function(data) {
     console.log("Recieved new party", data)
 
