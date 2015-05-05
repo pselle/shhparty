@@ -59,7 +59,7 @@ app.get("/party/:partyid", function(req, res) {
 })
 
 app.get("/dj/:partyid", function(req, res) {
-  res.render('dj', { partyId: req.params.partyid })
+  res.render('dj', { partyId: req.params.partyid, url: req.get('host') })
 })
 
 io.sockets.on('connection', function (socket) {
