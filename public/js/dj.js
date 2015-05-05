@@ -2,7 +2,7 @@ var socket = io.connect('/')
 
 // The dj var is written by the server side template.
 console.log("You are the dj:", dj)
-var peer = new Peer(dj, {key: 'hm094plpm3b1q0k9'})
+var peer = new Peer(dj, {key: 'hm094plpm3b1q0k9', debug: 3})
 var partiers = []
 
 var stream
