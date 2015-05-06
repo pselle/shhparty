@@ -68,7 +68,11 @@ io.sockets.on('connection', function (socket) {
   socket.on("newParty", function(data) {
     console.log("Recieved new party", data)
 
-    var text = '{"created":' + Date.now() +',"peerId":"' + data.peerId + '"}\n'
+    var text = '{"created":' + Date.now() +','
+              + '"peerId":"' + data.peerId + '",'
+              + '"partyName":"' + data.partyName + '",'
+              + '"partyMeta":"' + data.partyMeta + '"'
+              + '}\n'
     fs.writeFile("tmp/data.json", text, {encoding: 'utf8', flag: 'a+'}, function(error) {
       if (error) {
         console.error(error)
