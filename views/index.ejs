@@ -4,6 +4,8 @@
         <h1>Shh! It's a party!</h1>
       </div>
       <div class="jumbotron">
+        <input id="partyName" type="text" placeholder="Party name">
+        <input id="partyMeta" type="text" placeholder="Description/genre for party">
         <button id="newParty">Start a new party</button>
         <% if (parties.length > 0) { %>
           <p>or join an existing one:</p>
@@ -30,6 +32,13 @@
             </li>
             <li>
               <a href="/party/<%= party.peerId %>">Party!</a>
+            </li>
+            <li><a href="/party/<%= party.peerId %>">Party!</a></li>
+            <li>
+              <a href="/party/<%= party.peerId %>">
+                <%= party.partyName %>
+              </a>
+              <%= party.partyMeta %>
             </li>
           <% } %>
         </ul>
