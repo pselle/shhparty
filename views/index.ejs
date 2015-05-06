@@ -7,7 +7,12 @@
         <button id="newParty">Start a new party</button>
         <ul>
           <% for (var party of parties) { %>
-            <li><a href="/party/<%= party.peerId %>">Party!</a></li>
+            <li>
+              <a href="/party/<%= party.peerId %>">
+                <%= party.partyName %>
+              </a>
+              <%= party.partyMeta %>
+            </li>
           <% } %>
         </ul>
       </div>
