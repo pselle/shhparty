@@ -80,7 +80,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on("closedParty", function(partyData) {
     console.log("Closing party", partyData)
-    socket.broadcast.emit("blast", { dj: partyData.peerId })
+    socket.broadcast.emit("partyClosed", { dj: partyData.peerId })
     fs.readFile("tmp/data.json",  {encoding: 'utf8'}, function(err, data) {
       if (err) {
         console.error(err)

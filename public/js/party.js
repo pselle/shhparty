@@ -1,5 +1,4 @@
 var socket = io.connect('/')
-var peer = new Peer({key: 'hm094plpm3b1q0k9'})
 var peer = new Peer({key: 'hm094plpm3b1q0k9', debug: 3})
 
 // Ok, you're not the DJ. So, you first need to tell the DJ that you are here,
@@ -24,6 +23,6 @@ peer.on('call', function(mediaConn) {
   mediaConn.on('error', function(err) { console.log(err) })
 })
 
-socket.on('blast', function(data) {
+socket.on('partyClosed', function(data) {
   console.log(data)
 })
