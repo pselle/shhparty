@@ -27,9 +27,97 @@
         overflow: scroll;
       }
 
-      p{
+      body {
+        text-align: center;
+        /*font-family: Georgia;*/
+        background-color: #FFFFFF;
+        background-image: url("brickwall.png");
+      }
+
+      title {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+
+      h1 {
+        color: #000000;
+        font-family: inherit;
+        font-size: 45px;
+      }
+
+      .jumbotron {
+        text-align: center;
+        /*background-color: #00FA9A;*/
+        background: rgba(0, 250, 154, 0.35);
+        /*background: rgba(154, 72, 208, 0.55);*/
+        height: auto;
+        width: 70%;
+        position: absolute;
+        top:20;
+        bottom: 20;
+        left: 0;
+        right: 0;
+        margin: auto;
+        box-shadow: 2px 2px 20px;
+        /*border-radius: 15px 0px;*/
+      }
+
+      .choose {
+        position: relative;
+        /*display: flex;
+        flex-direction: 'row';*/
+        margin-bottom: 90px;
+      }
+
+      .start {
+        float: left;
+      }
+
+      #newParty {
+        width: relative;
+        background-color: #000000;
+        /*border-radius: 10px;*/
+        color: #9A48ED;
+        border-radius: 15px;
+        border-style: solid none;
+        border-color: #9A48ED;
+        margin-bottom: 10px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+
+      p {
         margin:0;
         padding:0;
+      }
+
+      ul {
+        margin: 15px;
+        list-style-type: none;
+        /*border-style: double none;*/
+      }
+
+      li {
+        /*display: initial;*/
+        border-style: solid none;
+        padding: 0;
+        margin: 0;
+        border-radius: 15px;
+        /*box-shadow: 2px 2px;*/
+        color: #000000;
+      }
+
+      li:hover {
+        border-style: dashed none;
+        padding: 0;
+        margin: 0;
+        /*box-shadow: 0px 0px 2px 2px;*/
+        text-decoration: none;
+        font-size: 110%;
+      }
+
+      a:hover {
+        text-decoration: none;
       }
     </style>
   </head>
