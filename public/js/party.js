@@ -24,3 +24,6 @@ peer.on('call', function(mediaConn) {
   mediaConn.on('error', function(err) { console.log(err) })
 })
 
+socket.on('blast', function(data) {
+  console.log(data)
+})

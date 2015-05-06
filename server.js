@@ -64,10 +64,8 @@ app.get("/dj/:partyid", function(req, res) {
 })
 
 io.sockets.on('connection', function (socket) {
-
   socket.on("newParty", function(data) {
     console.log("Recieved new party", data)
-
     var text = '{"created":' + Date.now() +','
               + '"peerId":"' + data.peerId + '",'
               + '"partyName":"' + data.partyName + '",'
@@ -82,6 +80,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on("closedParty", function(partyData) {
     console.log("Closing party", partyData)
+    socket.broadcast.emit("blast", { dj: partyData.peerId })
     fs.readFile("tmp/data.json",  {encoding: 'utf8'}, function(err, data) {
       if (err) {
         console.error(err)
