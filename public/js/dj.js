@@ -1,4 +1,5 @@
 var socket = io.connect('/')
+socket.emit("joinRoom", dj)
 
 // The dj var is written by the server side template.
 console.log("You are the dj:", dj)

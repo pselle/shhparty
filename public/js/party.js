@@ -1,4 +1,6 @@
 var socket = io.connect('/')
+socket.emit("joinRoom", dj)
+
 var peer = new Peer({key: 'hm094plpm3b1q0k9', debug: 3})
 
 // Ok, you're not the DJ. So, you first need to tell the DJ that you are here,
