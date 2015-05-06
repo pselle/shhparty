@@ -6,6 +6,11 @@ var newPartyButton = document.getElementById('newParty')
 var peer = new Peer({key: 'hm094plpm3b1q0k9', debug: 3})
 
 newPartyButton.addEventListener('click', function(e) {
-  socket.emit("newParty", { peerId: peer.id })
+  var partyData = {
+    peerId: peer.id,
+    name: document.getElementById('partyName').value,
+    descriptiion: document.getElementById('partyMeta').value
+  }
+  socket.emit("newParty", partyData)
   window.location = "/dj/" + peer.id
 })
