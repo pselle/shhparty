@@ -4,9 +4,12 @@
         <h1>Shh! It's a party!</h1>
       </div>
       <div class="jumbotron">
+        <p>Start a new party:</p>
         <input id="partyName" type="text" placeholder="Party name">
         <input id="partyMeta" type="text" placeholder="Description/genre for party">
-        <button id="newParty">Start a new party</button>
+        <span>
+          <button id="newParty">Go!</button>
+        </span>
         <% if (parties.length > 0) { %>
           <p>...or join an existing one:</p>
         <% } %>
