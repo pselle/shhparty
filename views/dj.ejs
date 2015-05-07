@@ -1,11 +1,13 @@
 <% include partials/header %>
 
     <div class="container">
-      <div class="jumbotron">
+      <div class="title">
         <h1>Shh! It's a party!</h1>
+      </div>
+      <div class="jumbotron">
         <h2>&hellip;and you're the DJ!</h2>
         <p>Use this link to listen and share:</p>
-        <input type="text" value="http://<%= url %>/party/<%= partyId %>">
+        <input id="dj" type="text" value="http://<%= url %>/party/<%= partyId %>">
       </div>
     </div>
 
