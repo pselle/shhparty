@@ -29,7 +29,6 @@
 
       body {
         text-align: center;
-        /*font-family: Georgia;*/
         background-color: #FFFFFF;
         background-image: url("brickwall.png");
       }
@@ -62,25 +61,49 @@
         /*border-radius: 15px 0px;*/
       }
 
-      .choose {
-        position: relative;
-        /*display: flex;
-        flex-direction: 'row';*/
-        margin-bottom: 90px;
+      #partyName {
+        float: left;
+        border-radius: 15px;
+        width: 30%;
+        /*background: rgba(0, 250, 154, 0);*/
+        background: rgba(250, 250, 250, 0.3);
+        border: none;
+        border-bottom: solid 2px #000000;
+        transition: border 0.3s;
+        /*background-image: url("brickwall.png");*/
       }
 
-      .start {
-        float: left;
+      #partyName:focus {
+        background: rgba(250, 250, 250, 0.6);
+        background-image: url("brickwall.png");
+        border-bottom: solid 2px #EE4266;
+      }
+
+      #partyMeta {
+        float: right;
+        border-radius: 15px;
+        width: 60%;
+        background: rgba(250, 250, 250, 0.3);
+        border: none;
+        border-bottom: solid 2px #000000;
+        transition: border 0.3s;
+        /*background-image: url("brickwall.png");*/
+      }
+
+      #partyMeta:focus {
+        background: rgba(250, 250, 250, 0.6);
+        background-image: url("brickwall.png");
+        border-bottom: solid 2px #EE4266;
       }
 
       #newParty {
         width: relative;
         background-color: #000000;
-        /*border-radius: 10px;*/
-        color: #9A48ED;
+        color: #1599D6;
         border-radius: 15px;
         border-style: solid none;
-        border-color: #9A48ED;
+        border-color: #1599D6;
+        margin-top: 10px;
         margin-bottom: 10px;
         padding-top: 0px;
         padding-bottom: 0px;
@@ -92,32 +115,32 @@
       }
 
       ul {
+        padding: 0;
         margin: 15px;
         list-style-type: none;
-        /*border-style: double none;*/
       }
 
       li {
-        /*display: initial;*/
         border-style: solid none;
         padding: 0;
         margin: 0;
         border-radius: 15px;
-        /*box-shadow: 2px 2px;*/
         color: #000000;
       }
 
       li:hover {
-        border-style: dashed none;
+        border-style: solid none;
+        border-color: #EE4266;
         padding: 0;
         margin: 0;
-        /*box-shadow: 0px 0px 2px 2px;*/
         text-decoration: none;
-        font-size: 110%;
+        /*background: rgba(21, 153, 214, 0.3);*/
+        background-image: url("brickwall.png");
       }
 
-      a:hover {
+      li:hover a {
         text-decoration: none;
+        /*color: #000000;*/
       }
     </style>
   </head>

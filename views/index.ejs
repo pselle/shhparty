@@ -8,16 +8,7 @@
         <input id="partyMeta" type="text" placeholder="Description/genre for party">
         <button id="newParty">Start a new party</button>
         <% if (parties.length > 0) { %>
-          <p>or join an existing one:</p>
-          <style>
-          .join {
-            float: right;
-          }
-          .join p {
-            text-align: center;
-            font-weight: bold;
-          }
-          </style>
+          <p>...or join an existing one:</p>
         <% } %>
         <ul>
           <% for (var party of parties) { %>
