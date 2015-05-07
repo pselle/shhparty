@@ -13,7 +13,7 @@
         <ul>
           <% for (var party of parties) { %>
             <li>
-              <a href="/party/<%= party.peerId %>">
+              <a href="/party/<%= party.peerId %>" alt="<%= party.partyMeta %>" title="<%= party.partyMeta %>">
                 <%= party.partyName %>
               </a>
               <%= party.partyMeta %>

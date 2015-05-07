@@ -1,0 +1,142 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+}
+
+#allPosts {
+  resize: none;
+  font-size: 12px;
+  border-radius: 5px;
+  border: #ccc solid 1px;
+  line-height: 14px;
+  height:100px;
+  overflow: scroll;
+}
+
+body {
+  text-align: center;
+  background-color: #FFFFFF;
+  background-image: url("brickwall.png");
+}
+
+title {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+h1 {
+  color: #000000;
+  font-family: inherit;
+  font-size: 45px;
+}
+
+.jumbotron {
+  text-align: center;
+  /*background-color: #00FA9A;*/
+  background: rgba(0, 250, 154, 0.35);
+  /*background: rgba(154, 72, 208, 0.55);*/
+  height: auto;
+  width: 70%;
+  position: absolute;
+  top:20;
+  bottom: 20;
+  left: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 2px 2px 20px;
+  /*border-radius: 15px 0px;*/
+}
+
+input {
+  text-align: center;
+}
+
+#partyName {
+  float: left;
+  border-radius: 15px;
+  width: 30%;
+  /*background: rgba(0, 250, 154, 0);*/
+  background: rgba(250, 250, 250, 0.3);
+  border: none;
+  border-bottom: solid 2px #000000;
+  transition: border 0.3s;
+  /*background-image: url("brickwall.png");*/
+}
+
+#partyName:focus {
+  background: rgba(250, 250, 250, 0.6);
+  background-image: url("brickwall.png");
+  border-bottom: solid 2px #EE4266;
+}
+
+#partyMeta {
+  float: right;
+  border-radius: 15px;
+  width: 60%;
+  background: rgba(250, 250, 250, 0.3);
+  border: none;
+  border-bottom: solid 2px #000000;
+  transition: border 0.3s;
+  /*background-image: url("brickwall.png");*/
+}
+
+#partyMeta:focus {
+  background: rgba(250, 250, 250, 0.6);
+  background-image: url("brickwall.png");
+  border-bottom: solid 2px #EE4266;
+}
+
+#newParty {
+  width: relative;
+  background-color: #000000;
+  color: #1599D6;
+  border-radius: 15px;
+  border-style: solid none;
+  border-color: #1599D6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+p {
+  margin:0;
+  padding:0;
+}
+
+ul {
+  padding: 0;
+  margin: 15px;
+  list-style-type: none;
+}
+
+li {
+  border-style: solid none;
+  padding: 0;
+  margin: 0;
+  border-radius: 15px;
+  color: #000000;
+}
+
+li:hover {
+  border-style: solid none;
+  border-color: #EE4266;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  /*background: rgba(21, 153, 214, 0.3);*/
+  background-image: url("brickwall.png");
+}
+
+li:hover a {
+  text-decoration: none;
+  /*color: #000000;*/
+}
+
+@media (max-width: 640px){
+  .jumbotron {
+    width: 95%;
+    }
+}
