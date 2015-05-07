@@ -2,10 +2,11 @@ var socket = io.connect('/')
 
 var app = app || {}
 
-var newPartyButton = document.getElementById('newParty')
+var newPartyForm = document.getElementById('createParty')
 var peer = new Peer({key: 'hm094plpm3b1q0k9', debug: 3})
 
-newPartyButton.addEventListener('click', function(e) {
+newPartyForm.addEventListener('submit', function(e) {
+  e.preventDefault()
   var partyData = {
     peerId: peer.id,
     partyName: document.getElementById('partyName').value || "An unnamed party",

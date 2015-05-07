@@ -5,6 +5,12 @@ button:focus {
   outline: none !important;
 }
 
+/* Utility classes */
+
+.clear {
+  clear: both;
+}
+
 #allPosts {
   resize: none;
   font-size: 12px;
@@ -151,5 +157,5 @@ a:visited, a:active {
 @media (max-width: 640px){
   .jumbotron {
     width: 95%;
-    }
+  }
 }
