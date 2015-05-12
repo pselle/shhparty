@@ -8,11 +8,11 @@ var peer = new Peer({key: 'hm094plpm3b1q0k9', debug: 3})
 var conn = peer.connect(dj)
 conn.on('open', function() {
   conn.send({ type: "here", party: dj, id: peer.id })
-  console.log("Said I'm here.")
+  // console.log("Said I'm here.")
 })
 
 peer.on('call', function(mediaConn) {
-  console.log("received call, now answering")
+  // console.log("received call, now answering")
   mediaConn.answer()
   // Close our connection to the DJ, as they're calling us
   if(conn) {
@@ -26,5 +26,5 @@ peer.on('call', function(mediaConn) {
 })
 
 socket.on('partyClosed', function(data) {
-  console.log(data)
+  alert('The DJ has left the party.')
 })
